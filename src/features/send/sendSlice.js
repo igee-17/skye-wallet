@@ -4,13 +4,7 @@ import {
   getUserLocalStorage,
   setUserLocalStorage,
 } from "../../utils/localstorage";
-import {
-  createJobThunk,
-  createTransactionThunk,
-  deleteJobThunk,
-  editJobThunk,
-  getUserThunk,
-} from "./sendThunk";
+import { createTransactionThunk, getUserThunk } from "./sendThunk";
 
 let user = getUserLocalStorage();
 
@@ -28,8 +22,6 @@ const initialState = {
   amount: "",
   balance: user?.balance,
 };
-
-// export const editJob = createAsyncThunk("job/editJob", editJobThunk);
 
 export const getUser = createAsyncThunk("send/getUser", getUserThunk);
 
@@ -63,10 +55,8 @@ const jobSlice = createSlice({
     },
     [getUser.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload, "got the user");
       state.recipientUser = payload;
       state.receiverIds = payload.paymentIds;
-      // toast.success("recipient id filled");
     },
     [getUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -79,9 +69,7 @@ const jobSlice = createSlice({
     [createTransaction.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       const { mode, message, data } = payload;
-      console.log(payload);
-      // state.recipientUser = payload;
-      // state.receiverIds = payload.paymentIds;
+
       if (mode === "error") {
         toast.error(message);
         return;

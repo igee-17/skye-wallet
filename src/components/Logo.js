@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../assets/images/logo.svg";
 
 const Logo = () => {
-  // return <img src={logo} alt="logo image" className="logo" />;
   return (
     <div className="logo">
       <svg
@@ -11,20 +10,10 @@ const Logo = () => {
         height="80"
         width="300"
         style={{
-          // width: "300px",
-          // height: "80px",
-          // position: "absolute",
-          // top: "100px",
-          // left: "100px",
-          // zIndex: 0,
-          // cursor: "pointer",
-          // transform: "translate(-50%, -50%) scale(0.556)",
-
           width: "181px",
           height: "50px",
           viewBox: "0 0 181 50",
           fill: "blue",
-          // xmlns"http://www.w3.org/2000/svg"
         }}
       >
         <defs id="SvgjsDefs1019"></defs>

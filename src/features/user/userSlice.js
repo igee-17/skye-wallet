@@ -59,7 +59,7 @@ export const deleteId = createAsyncThunk(
   "user/deleteId",
   async (data, thunkAPI) => {
     const { paymentId, user } = data;
-    console.log(paymentId, user);
+
     return deleteIdThunk(
       `/users/${user.userId}/paymentIds/${paymentId}`,
       user,
@@ -104,16 +104,11 @@ const userSlice = createSlice({
       state.user = user;
 
       setUserLocalStorage(user);
-
-      // toast.success(`Hey There ${user.name} 🤩`);
       toast.success(message);
     },
     [registerUser.rejected]: (state, { payload }) => {
-      // console.log(payload);
       state.isLoading = false;
-      // const { message } = payload;
 
-      // toast.error(payload);
       toast.error("User exists, wrong password");
     },
     // LOGIN USER
@@ -129,7 +124,6 @@ const userSlice = createSlice({
       toast.success(`Welcome back ${user.name} 😊`);
     },
     [loginUser.rejected]: (state, { payload }) => {
-      console.log(payload);
       state.isLoading = false;
       toast.error(`${payload} 🤨`);
     },
@@ -187,10 +181,8 @@ const userSlice = createSlice({
       const { paymentId } = payload;
 
       let newPaymentIds = [];
-      // const newUser =
       newPaymentIds = user.paymentIds.filter((id) => id !== paymentId);
 
-      console.log(newPaymentIds, "new");
       state.isLoading = false;
       state.user = {
         ...user,
@@ -217,10 +209,7 @@ const userSlice = createSlice({
     [getTransactions.fulfilled]: (state, { payload }) => {
       const { user } = state;
       state.isLoading = false;
-      console.log(payload, user.userId);
       state.transactions = payload;
-
-      // toast.success(`User Updated! 👨🏻‍🚀`);
     },
     [getTransactions.rejected]: (state, { payload }) => {
       state.isLoading = false;

@@ -40,8 +40,6 @@ const User = ({ name, email, phone, userId, paymentIds, balance }) => {
             />
           ))}
           <JobInfo icon={<FaMoneyBillWave />} text={`Balance - $${balance}`} />
-
-          {/* <div className={`status`}>status</div> */}
         </div>
       </div>
     </Wrapper>

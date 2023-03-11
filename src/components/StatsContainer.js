@@ -86,8 +86,7 @@ const StatsContainer = () => {
               } = item;
               const year = moment(timestamp).format("MMMM Do YYYY");
               const time = moment(timestamp).format(" h:mm:ss a");
-              console.log(recipient);
-              // const checkType =
+
               return (
                 <div className="header item" key={index}>
                   <p>

@@ -1,11 +1,9 @@
 import { logoutUser } from "./userSlice";
 import customFetch, { checkForUnauthorizedResponse } from "../../utils/axios";
-import { clearAllJobsState } from "../allJobs/allJobs";
 import { clearValues } from "../send/sendSlice";
 
 const errorMsg = (error) => {
   if (error.message !== "Network Error") {
-    console.log("hello");
     return error.response.data.msg;
   } else return `${error.message} `;
 };
@@ -22,7 +20,6 @@ export const registerThunk = async (url, user, thunkAPI) => {
 export const loginThunk = async (url, user, thunkAPI) => {
   try {
     const resp = await customFetch.post(url, user);
-    console.log(resp.data);
     return resp.data;
   } catch (error) {
     return checkForUnauthorizedResponse(error, thunkAPI);

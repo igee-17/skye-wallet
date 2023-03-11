@@ -6,8 +6,7 @@ import { clearFilters, handleChange } from "../features/allJobs/allJobs";
 
 const SearchContainer = () => {
   const dispatch = useDispatch();
-  const { isLoading, search, searchStatus, searchType, sort, sortOptions } =
-    useSelector((store) => store.allJobs);
+  const { isLoading, search } = useSelector((store) => store.allJobs);
   const { balance } = useSelector((store) => store.send);
 
   const handleSearch = (e) => {

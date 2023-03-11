@@ -32,7 +32,6 @@ const Register = () => {
   }, [user]);
 
   const handleChange = (e) => {
-    // console.log(e.target);
     const name = e.target.name;
     const value = e.target.value;
 
@@ -42,7 +41,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { name, email, phone, password, isMember } = values;
-    // console.log(e.target);
+
     if (!email || !password || (!isMember && !name)) {
       toast.error("please fill out all fields");
       return;

@@ -52,11 +52,8 @@ const makePaymentSlice = createSlice({
     },
 
     [getAllUsers.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.isLoading = false;
       state.users = payload;
-      //   state.numOfPages = payload.numOfPages;
-      //   state.totalJobs = payload.totalJobs;
     },
 
     [getAllUsers.rejected]: (state, { payload }) => {

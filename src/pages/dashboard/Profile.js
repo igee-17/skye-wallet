@@ -22,8 +22,6 @@ const Profile = () => {
   });
   const { paymentIds } = user;
 
-  console.log(isLoading);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, location, lastName } = userData;

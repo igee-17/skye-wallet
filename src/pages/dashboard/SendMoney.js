@@ -16,7 +16,6 @@ const AddJob = () => {
   const [Id, setId] = useState("");
   const [Ids, setIds] = useState([]);
 
-  console.log(useParams());
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -38,7 +37,7 @@ const AddJob = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(senderId, receiverId, amount);
+
     if (!senderId || !receiverId || !amount) {
       toast.warning("Kindly fill out all fields");
       return;
@@ -63,43 +62,18 @@ const AddJob = () => {
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value);
     dispatch(handleChange({ name, value }));
   };
 
   const handleJobInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value);
     dispatch(handleChange({ name, value }));
   };
 
-  // useEffect(() => {
-  //   // set senderIds as page load
-  //   console.log("changing senderIds", user);
-  //   dispatch(
-  //     handleChange({
-  //       name: "senderIds",
-  //       value: user.paymentIds,
-  //     })
-  //   );
-  //   dispatch(
-  //     handleChange({
-  //       name: "senderId",
-  //       // value: getUserLocalStorage().paymentIds[0],
-  //       value: user.paymentIds[0],
-  //     })
-  //   );
-  //   // if (!isEditing) {
-  //   //   dispatch(handleChange({ name: "jobLocation", value: user.location }));
-  //   // }
-  // }, [user]);
-
   useEffect(() => {
-    console.log(id, "id loaded");
     if (id) {
       dispatch(getUser(id));
-      // dispatch(handleChange({ name: "jobLocation", value: user.location }));
     }
   }, [id]);
 

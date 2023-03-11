@@ -4,7 +4,6 @@ import Wrapper from "../assets/wrappers/JobsContainer";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "./Loading";
 import { getAllUsers, updateUsers } from "../features/makePayment/makePayment";
-import PageButtonContainer from "./PageButtonContainer";
 import User from "./User";
 
 const JobsContainer = () => {
@@ -23,18 +22,15 @@ const JobsContainer = () => {
 
     let result = regex.test(text);
 
-    console.log("hello", result);
-
     if (result) {
       const delaySearch = setTimeout(() => {
         const user = users.filter((item) => item.paymentIds.includes(search));
-        console.log(user, "user");
+
         dispatch(updateUsers(user));
       }, 1000);
 
       return () => clearTimeout(delaySearch);
     } else if (search?.length !== 0) {
-      console.log("hello else");
       const delaySearch = setTimeout(() => {
         dispatch(getAllUsers());
       }, 1000);
@@ -74,7 +70,7 @@ const JobsContainer = () => {
           return <User key={user._id} {...user} />;
         })}
       </div>
-      {numOfPages > 1 && <PageButtonContainer />}
+      {/* {numOfPages > 1 && <PageButtonContainer />} */}
     </Wrapper>
   );
 };

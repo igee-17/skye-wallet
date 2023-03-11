@@ -25,7 +25,6 @@ function App() {
         >
           <Route index element={<Stats />} />
           <Route path="make-transfer" element={<MakeTransfer />} />
-          <Route path="send-money" element={<SendMoney />} />
           <Route path="send-money/:id" element={<SendMoney />} />
           <Route path="profile" element={<Profile />} />
         </Route>

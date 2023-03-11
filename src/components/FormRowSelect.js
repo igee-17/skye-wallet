@@ -15,7 +15,6 @@ const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
           Select...
         </option>
         {list.map((item, index) => {
-          console.log(item, "item");
           return (
             <option key={index} value={item}>
               {item}
