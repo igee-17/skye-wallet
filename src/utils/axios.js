@@ -4,7 +4,8 @@ import { clearStore } from "../features/user/userSlice";
 
 const customFetch = axios.create({
   // baseURL: "https://jobify-prod.herokuapp.com/api/v1/toolkit",
-  baseURL: "http://localhost:5000",
+  // baseURL: "http://localhost:5000",
+  baseURL: "https://skyewallet.onrender.com",
 });
 
 // customFetch.interceptors.request.use(
