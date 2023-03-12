@@ -35,7 +35,7 @@ const StatsContainer = () => {
     },
     {
       title: "Available Balance",
-      count: `$ ${balance}` || 0,
+      count: `${balance ? `$ ${balance}` : "0"}`,
       icon: <GrMoney />,
       color: "#e9b949",
       bcg: "#fcefc7",
